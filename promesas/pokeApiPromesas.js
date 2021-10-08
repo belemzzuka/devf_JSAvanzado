@@ -11,7 +11,7 @@ const URI = 'https://pokeapi.co/api/v2/pokemon/';
 
 // Declarar Promesa
 function obtenerPokemonPorNombre(nombre) {
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve,reject) => {
         request.get(URI+nombre, function(err,response,body){
             if(response.statusCode === 200)
             {
@@ -33,9 +33,9 @@ function obtenerInfoPokemon(nombre){
     
     //Manda a llamar la promesa
     obtenerPokemonPorNombre(nombre) // Mandar llamar a la promesa
-    .then((infoPokemon) =>{
+    .then((infoPokemon) => { // en el arrow function infoPokemon es el parametro de una funcion sin nombre, ese parametro es lo que trae de Resolve. Es una funcion sin nombre porque no se manda a llamar.
         console.log("La promesa fue correcta"); // 3ero en ejecutar
-        //console.log(infoPokemon); //4to en ejecutar. Imprime lo de la function arrow, que realmente trae lo de bodyJSON
+        console.log(infoPokemon); //4to en ejecutar. Imprime lo de la function arrow, que realmente trae lo de bodyJSON
     })
     .catch((err) =>{
         console.log("La promesa devolvión un error");
@@ -46,8 +46,8 @@ function obtenerInfoPokemon(nombre){
 }
 
 obtenerInfoPokemon("charmander"); // Primero en ejecutar
-obtenerInfoPokemon("pikachu"); // Segundo en ejecutar
-obtenerInfoPokemon("belem"); // Tercero en ejecutar
+//obtenerInfoPokemon("pikachu"); // Segundo en ejecutar
+//obtenerInfoPokemon("belem"); // Tercero en ejecutar
 
 /* OUTPUT:
 Se busca la informacion del pokemon charmander
